@@ -28,13 +28,17 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 GRAPHENE = {
-    "SCHEMA": "alx_backend_graphql.schema.schema"
+    "SCHEMA": "graphql_crm.schema.schema",
+    "MIDDLEWARE": [
+        "graphene_django.debug.DjangoDebugMiddleware",
+    ],
 }
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.staticfiles',
     'graphene_django',
     'django_filters',
     'crm',
