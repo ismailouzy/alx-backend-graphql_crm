@@ -1,5 +1,8 @@
 #!/bin/bash
-cd /absolute/path/to/alx-backend-graphql_crm
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR/../.."
+
 source venv/bin/activate
 
 python manage.py shell << END
@@ -12,4 +15,3 @@ with open("/tmp/customer_cleanup_log.txt", "a") as f:
     from datetime import datetime
     f.write(f"{datetime.now()} - Deleted {deleted} customers\n")
 END
-
