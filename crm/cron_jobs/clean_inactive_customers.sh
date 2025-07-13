@@ -1,7 +1,12 @@
 #!/bin/bash
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR/../.."
+cwd="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -d "$cwd/../.." ]; then
+  cd "$cwd/../.."
+else
+  echo "Could not determine project root directory." >&2
+  exit 1
+fi
 
 source venv/bin/activate
 
